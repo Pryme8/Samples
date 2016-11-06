@@ -170,7 +170,65 @@
     function start() {
         effectiveStart();
         checkHash();
+		newBindings();
+		
     }
+	
+	function newBindings(){
+		//NEW BINDINGS
+		
+		function resizeM(e){
+			var nY = e.clientY-75;
+			var pNode = document.getElementById('shadersContainer');
+			var pNH = pNode.clientHeight;
+			var lineSize = 16;
+			var mLC = Math.floor(pNH / lineSize);
+			
+			if(nY<32 || nY > pNH - 32){resizeC()};
+			
+			nY = Math.max(Math.min(nY, pNH - 36), 36);
+			var sP = nY/pNH;
+			var lC = Math.floor(mLC * sP);
+			sP=(sP*100).toFixed(2);
+			
+			
+			console.log(lC);
+					
+			(document.getElementById('fragmentRow')).style.height = sP+"%";
+			(document.getElementById('vertexRow')).style.top = sP+"%";
+			(document.getElementById('editor-scale')).style.top = sP+"%";
+			
+			
+			vertexEditor.setOptions({
+   			 maxLines: lC-1
+			});
+			
+			pixelEditor.setOptions({
+   			 maxLines: mLC - (lC-1)
+			});
+			
+		};
+		
+		function resizeU(e){			
+			resizeC();
+		};
+		
+		function resizeC(e){
+			console.log("EVENTS CLEARED!");
+			window.removeEventListener('mouseup', resizeU, false);
+			window.removeEventListener('mousemove', resizeM, false);
+		};
+		
+		function resizeE(e){
+			e.preventDefault();
+			window.addEventListener('mouseup', resizeU, false);
+			window.addEventListener('mousemove', resizeM, false);
+			
+		};
+		
+	 (document.getElementById('scale-control')).addEventListener('mousedown', resizeE ,false);
+	
+	};
 
     function effectiveStart() {
         // Editors
@@ -178,11 +236,15 @@
         vertexEditor.setTheme("ace/theme/chrome");
         vertexEditor.getSession().setMode("ace/mode/glsl");
         vertexEditor.setShowPrintMargin(false);
+		 //vertexEditor.setAutoScrollEditorIntoView(true);
+		
 
         pixelEditor = ace.edit("fragmentShaderEditor");
         pixelEditor.setTheme("ace/theme/chrome");
         pixelEditor.getSession().setMode("ace/mode/glsl");
         pixelEditor.setShowPrintMargin(false);
+		//pixelEditor.setAutoScrollEditorIntoView(true);
+	
 
         // UI
         document.getElementById("templates").addEventListener("change", selectTemplate, false);
@@ -394,4 +456,11 @@
             document.getElementById("shadersContainer").style.backgroundColor = "red";
         };
     };
+	
+	
+	
+	
+	
+	
+	
 })();

@@ -377,8 +377,10 @@ void main(void) {
     gl_FragColor = vec4(color, 1.);
 }</script>
 
+
     <div id="outerContainer">
         <div id="subHeaderBackground">
+         <div id="options">
             <div id="templateDropdown" class="dropdownContainer">
                 <div class="dropdownLabel">Templates:</div>
                 <div class="dropdownSelectContainer">
@@ -394,6 +396,30 @@ void main(void) {
                     </select>
                 </div>
             </div>
+           
+            <div id="main-menu">
+    				<div class='menu-head'>
+                   			<a href='#'><div class='icon' id='menu-icon'>
+                            <span></span><span></span><span></span>
+                            </div>
+                            </a>
+                    	   	<div class="menu-block">
+                            		<div class="menu-item"><a href='#'>Meshs</a>
+                                    	<div class="menu-block">
+                                        </div>
+                                    	
+                                    
+                                    </div>
+                                    <div class="menu-item"><a href='#'>Templates</a></div>
+                            </div>
+                      
+                    </div>
+            </div>
+            
+        
+            
+            
+            
             <div id="meshDropdown" class="dropdownContainer">
                 <div class="dropdownLabel">Meshes:</div>
                 <div class="dropdownSelectContainer">
@@ -405,14 +431,16 @@ void main(void) {
                     </select>
                 </div>
             </div>    
+            </div>
             <div id="buttons">
                 <div id="compileButton" class="circleButton" title="Compile"></div>
                 <div id="saveButton" class="circleButton" title="Save"></div>
                 <div id="getButton" class="circleButton" title="Get"></div>
             </div>
         </div>
+        
         <div id="shadersContainer">
-            <div id="vertexRow" class="row">
+        	    <div id="vertexRow" class="row">
                 <div class="rowHeader">
                     <span class="headerTitle">PIXEL (FRAGMENT) SHADER</span>
                 </div>
@@ -420,6 +448,7 @@ void main(void) {
                     <div class="shaderCode" id="fragmentShaderEditor"></div>
                 </div>
             </div>
+            <div id="editor-scale"><a href='#' id='scale-control'></a></div>
             <div id="fragmentRow" class="row">
                 <div class="rowHeader">
                     <span class="headerTitle">VERTEX SHADER</span>

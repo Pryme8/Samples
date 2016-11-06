@@ -240,9 +240,11 @@ body {
   right: 50%;
   bottom: 0;
   left: 0;
-  background-color: #464852;
+  background-color: #464852 !important;
   overflow: hidden;
   box-sizing: border-box;
+  /*! padding-right: 6px; */
+  /*! box-sizing: border-box; */
 }
 #renderContainer {
   position: absolute;
@@ -452,13 +454,18 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
+  /*!  */
+  /*!  */
+  /*!  */
+  z-index: 100;
 }
 #fragmentRow {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 50%;
+  height: 50%;
   left: 0;
+  /*!  */
 }
 .rowEditor {
   position: absolute;
@@ -535,14 +542,18 @@ select:focus::-ms-value {
   display: block;
 }
 #templateDropdown {
-  position: absolute;
-  left: 20px;
+  position: relative;
+  right: 20px;
   top: 15px;
+  display: inline-block;
+  float: right;
 }
 #meshDropdown {
-  position: absolute;
-  left: 290px;
+  position: relative;
+  right: 36px;
   top: 15px;
+  display: inline-block;
+  float: right;
 }
 .header {
   display: table-cell;
@@ -569,10 +580,12 @@ select:focus::-ms-value {
   background-color: black;
 }
 #buttons {
-  position: absolute;
-  right: 10px;
+  position: relative;
+  left: 10px;
   top: 10px;
-  right: 0;
+  /*! right: 50%; */
+  display: inline-block;
+  width: 50%;
 }
 .circleButton {
   background: transparent;
@@ -695,3 +708,91 @@ select:focus::-ms-value {
 .error {
   color: red;
 }
+
+#compileButton{
+  float:right;
+}
+
+
+#editor-scale{
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: grey;
+  z-index: 10001;
+  top:50%;
+  cursor: row-resize;
+}
+
+#editor-scale a{
+  display: block;
+  width:100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left:0;
+  cursor: row-resize;
+}
+
+#options{
+  margin-right: 64px;
+}
+
+
+#main-menu{
+  display:inline-block;
+  position: absolute;
+  right:12px;
+  top:12px;
+  height: auto;
+  width: auto;
+  z-index: 10001;
+  text-align: right;
+
+}
+
+#menu-icon{
+  display: block;
+  width:48px;
+  height: 48px;
+  padding: 0 !important;
+  margin-left: 48px;
+
+}
+
+#menu-icon span{
+  display: block;
+  width:100%;
+  height: 9px;
+  background: #23a489;
+  margin-top: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
+
+
+.menu-item a{
+  color:white;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+}
+
+.menu-block{
+  display: none;
+}
+
+
+.menu-head:hover > .menu-block, .menu-head:active > .menu-block{
+  display: block;
+}
+
+.menu-item{
+  line-height: 1.5em;
+  background: grey;
+  padding:0.2em;
+}
+
+
+
